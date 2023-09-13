@@ -4,7 +4,7 @@ using web2.Models;
 
 namespace web2.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class TootedController : ControllerBase
     {
@@ -21,6 +21,12 @@ namespace web2.Controllers
         [HttpGet]
         public List<Toode> Get()
         {
+            return _tooted;
+        }
+        [HttpPost("lisa")]
+        public List<Toode> Add([FromBody] Toode toode)
+        {
+            _tooted.Add(toode);
             return _tooted;
         }
 
